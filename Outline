@@ -1,0 +1,43 @@
+Speedy MD Outline
+
+Physicians: Provides a record of physicians assigned to patients
+ ○ physicianID: int, auto_increment, NOT NULL, PK
+ ○ physician_name: varchar(50), NOT NULL
+ ○ specialty: varchar(50), NOT NULL
+ Relationships: a M:N relationship between Physicians and Patients is implemented inside the MedChart intersection table containing physicianID as a FK.
+
+
+MedChart (not an entity): An intersection table that records the relationship between Physicians and Patients
+ ○ medchartDetailsID: int, auto_increment, NOT NULL, PK
+ ○ physicianID: int, NOT NULL, FK
+ ○ patientID: int, NOT NULL, FK
+ Relationships: Facilitates the M:N relationship between Physicians and Patients by storing their FKs.
+
+
+Patients: Keeps track of the number of patients and their demographics
+ ○ patientID: int, auto_increment, NOT NULL, PK
+ ○ patient_name: varchar(50), NOT NULL
+ ○ dateOfBirth: date, NOT NULL
+ ○ gender: varchar(50), NOT NULL
+ ○ admitted_date: date, NOT NULL
+ ○ discharged_date: date, NOT NULL
+ Relationships: a M:N relationship implementation between Physicians and Patients as described above. Another 1:M relationship between Patients and Diagnoses is implemented with patientID as a FK inside the Diagnoses entity.
+
+
+Diagnoses: Records the diagnoses associated with the patients
+ ○ diagnosisID: int, auto_increment, NOT NULL, PK
+ ○ diagnosis_name: varchar(50), NOT NULL
+ ○ description: varchar(50), NOT NULL
+ ○ patientID: int, NOT NULL, FK
+ Relationships: a 1:M relationship implementation between Patients and Diagnoses is established as shown above.
+
+
+Tests: Tracks the number of different lab tests ordered for patients
+ ○ testID: int, auto_increment, NOT NULL, PK
+ ○ test_name: varchar(50), NOT NULL
+ ○ test_date: date, NOT NULL
+ ○ test_time: int, NOT NULL
+ ○ patientID: int, NOT NULL, FK
+ ○ physicianID: int, NOT NULL, FK
+ ○ result: varchar(50), NOT NULL
+ Relationships: a 1:M relationship between Patients and Tests is implemented with patientID as a FK inside the Tests entity. Another optional 1:M relationship between Physicians and Tests is implemented with physicianID as a FK inside the Tests entity.
