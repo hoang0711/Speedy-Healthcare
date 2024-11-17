@@ -44,7 +44,7 @@ CREATE OR REPLACE TABLE Tests (
     test_name VARCHAR(50) NOT NULL,
     test_date DATE NOT NULL,
     test_time TIME NOT NULL,
-    physicianID INT,
+    physicianID INT, NULL
     patientID INT NOT NULL,
     result VARCHAR(50) NOT NULL,
     FOREIGN KEY (patientID) REFERENCES Patients(patientID) 

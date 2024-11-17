@@ -1,6 +1,4 @@
--- Team Members: Lujia He, Bang Hoang
--- Group 68
--- DML queries for Project Step 3 Draft
+-- DML queries for Speedy Healthcare Draft
 
 ------------------------------------------------------------
 -- CRUD functions for Physicians
