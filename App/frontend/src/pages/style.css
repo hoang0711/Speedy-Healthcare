@@ -1,0 +1,99 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f8fa;
+    color: #333;
+    padding: 20px;
+}
+
+/* Common Container for All Sections */
+.common-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Header Styling */
+.common-container header h1 {
+    font-size: 26px;
+    color: #2e7d87;
+    margin-bottom: 20px;
+}
+
+.common-container nav a {
+    color: #2e7d87;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.common-container nav a:hover {
+    text-decoration: underline;
+}
+
+/* Actions Button */
+.common-actions button {
+    background-color: #2e7d87;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.common-actions button:hover {
+    background-color: #1f5961;
+}
+
+/* Table Styling */
+.common-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.common-table th,
+.common-table td {
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+}
+
+.common-table th {
+    background-color: #e0f7fa;
+    color: #2e7d87;
+    font-weight: bold;
+}
+
+.common-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.common-table tr:hover {
+    background-color: #e6f7ff;
+}
+
+/* Trademark Styling */
+.trademark {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #555;
+    text-align: center;
+}
