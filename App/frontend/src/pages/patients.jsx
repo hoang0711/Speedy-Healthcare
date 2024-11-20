@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import './style.css';
 import { getPatients } from "../client/mockAPI";
+import './style.css';
 
 function Patients() {
     const [patients, setPatients] = useState([]);
@@ -11,8 +11,8 @@ function Patients() {
         getPatients().then(response => {
             setPatients(response);
         })
-    },[])
-    
+    }, [])
+
     const handleDeleteClick = (patientId) => {
         setPatients(patients.filter(patient => patient.id !== patientId));
     };

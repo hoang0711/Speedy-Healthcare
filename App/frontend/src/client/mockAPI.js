@@ -1,4 +1,12 @@
-export const getPatients = async () => new Promise((resolve, reject) => {
+import axios from "axios";
+
+export const getPatients = async () => {
+    const response = await axios.get("http://classwork.engr.oregonstate.edu:51551/patients");
+    return response.json()
+}
+
+export const getPatientsOld = async () => new Promise((resolve, reject) => {
+
     resolve([{
         id: 101,
         name: "John Doe",
