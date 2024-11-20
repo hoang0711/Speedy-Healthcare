@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";  // Get patient ID from the URL
 import './Form.css';
-import { editPatient, getPatients } from "../client/mockAPI";
+import { editPatient, getPatients } from "../client/apiClient";
 
 function EditPatientForm() {
     const { id } = useParams();  // Get patient ID from the URL
@@ -19,7 +19,7 @@ function EditPatientForm() {
             const foundPatient = response.find((patient) => Number(patient.id) === Number(id));
             setEditedPatient(foundPatient);
         })
-    },[id])
+    }, [id])
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;

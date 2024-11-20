@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getPatients } from "../client/mockAPI";
+import { getPatients } from "../client/apiClient";
 import './style.css';
 
 function Patients() {
@@ -38,19 +38,21 @@ function Patients() {
                 <thead>
                     <tr>
                         <th>Name</th>
+                        <th>Date of Birth</th>
                         <th>Gender</th>
                         <th>Admitted Date</th>
                         <th>Discharged Date</th>
-                        <th>Actions</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     {patients.map((patient) => (
-                        <tr key={patient.id}>
-                            <td>{patient.name}</td>
+                        <tr key={patient.patientID}>
+                            <td>{patient.patient_name}</td>
+                            <td>{patient.date_of_birth}</td>
                             <td>{patient.gender}</td>
-                            <td>{patient.admittedDate}</td>
-                            <td>{patient.dischargedDate}</td>
+                            <td>{patient.admitted_date}</td>
+                            <td>{patient.discharged_date}</td>
                             <td>
                                 {/* Link to EditPatientForm page for a specific patient */}
                                 <Link to={`/edit-patient/${patient.id}`}>

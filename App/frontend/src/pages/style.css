@@ -61,39 +61,68 @@ body {
 
 /* Table Styling */
 .common-table {
-    width: 100%;
+    width: 85%;
+    /* Reduced width to make the table more contained */
+    max-width: 100%;
+    /* Ensures the table doesn't overflow the container */
+    margin: 20px auto;
+    /* Centers the table */
     border-collapse: collapse;
-    margin-top: 20px;
     background-color: #fff;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    /* Lighter shadow for a subtle effect */
+    overflow-x: auto;
+    /* Allows horizontal scrolling on smaller screens */
 }
 
 .common-table th,
 .common-table td {
-    padding: 12px 15px;
+    padding: 12px 16px;
+    /* Reduced padding for tighter cell spacing */
     text-align: left;
     font-size: 14px;
+    /* Slightly smaller font size for better fit */
     border-bottom: 1px solid #ddd;
 }
 
 .common-table th {
     background-color: #e0f7fa;
+    /* Blue background for headers */
     color: #2e7d87;
+    /* Dark teal color for text */
     font-weight: bold;
 }
 
 .common-table tr:nth-child(even) {
     background-color: #f9f9f9;
+    /* Alternating row colors for better readability */
 }
 
 .common-table tr:hover {
     background-color: #e6f7ff;
+    /* Highlighted row color on hover */
+}
+
+/* Responsive design adjustments for smaller screens */
+@media (max-width: 768px) {
+    .common-table {
+        width: 100%;
+        /* Ensure full width on small screens */
+        font-size: 12px;
+        /* Smaller font size on mobile */
+    }
+
+    .common-table th,
+    .common-table td {
+        padding: 10px 12px;
+        /* Further reduce padding on mobile */
+    }
 }
 
 /* Trademark Styling */
 .trademark {
     margin-top: 20px;
-    font-size: 12px;
+    font-size: 16px;
     color: #555;
     text-align: center;
 }

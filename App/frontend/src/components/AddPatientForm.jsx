@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import './Form.css';  // Assuming you have styles for your form
-import { createPatient } from "../client/mockAPI";
+import { createPatient } from "../client/apiClient";
 
 function AddPatientForm() {
     const [newPatient, setNewPatient] = useState({
@@ -18,7 +18,7 @@ function AddPatientForm() {
 
     const addNewPatient = (e) => {
         e.preventDefault();
-        
+
         // call create patient API
         if (!newPatient.name || !newPatient.dateBirth || !newPatient.gender) {
             alert("Please fill in all required fields.");
