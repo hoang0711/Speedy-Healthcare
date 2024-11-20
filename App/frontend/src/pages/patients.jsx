@@ -64,6 +64,7 @@ function Patients() {
                     ))}
                 </tbody>
             </table>
+            <div className="trademark">SpeedyMD™</div>
         </section>
     );
 }

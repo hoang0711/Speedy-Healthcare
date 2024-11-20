@@ -1,50 +1,166 @@
-/* Container styling for centering content and layout */
+/* Resetting default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Full screen layout */
+html,
+body {
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #6dd5ed 0%, #2193b0 100%);
+    /* Background gradient */
+    color: #fff;
+    /* Light text for contrast */
+}
+
+/* Main container takes up full screen */
 .container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
+    min-height: 100vh;
+    /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Semi-transparent background */
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    /* Add shadow for depth */
 }
 
 /* Header styling */
 h1 {
-    color: #2e7d87; /* Teal color for header */
+    font-size: 3.5rem;
+    color: #fff;
+    font-weight: 700;
     margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: fadeIn 2s ease-in-out;
+    /* Fade-in effect */
 }
 
+/* Paragraph styling for introduction */
 header p {
-    font-size: 16px;
-    color: #333; /* Darker gray for the welcome message */
-    line-height: 1.5;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    /* Lighter text */
+    margin-bottom: 30px;
+    line-height: 1.7;
+    max-width: 650px;
+    animation: slideIn 1.5s ease-out;
+    /* Slide-in effect */
 }
 
-/* Link list styling */
+/* List styling for links */
 .link-list {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .link-list li {
     margin: 15px 0;
 }
 
+/* Link styling with hover effect */
 .link-list a {
-    font-size: 18px;
-    color: #007bff; /* Blue for links */
+    font-size: 1.3rem;
+    color: #fff;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
+    letter-spacing: 1px;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .link-list a:hover {
-    text-decoration: underline;
+    color: #2193b0;
+    /* Hover effect with a highlight color */
+    transform: translateY(-5px);
+    /* Slight lift effect on hover */
 }
 
-/* Trademark styling */
+.link-list a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #2193b0;
+    /* Underline effect */
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.link-list a:hover::after {
+    transform: scaleX(1);
+    /* Animate the underline effect */
+}
+
+/* Footer (Trademark) */
 .trademark {
-    position: fixed;
-    bottom: 10px;
-    left: 10px;
-    font-size: 12px;
-    color: #555; /* Subtle gray color */
+    font-size: 14px;
+    /* Adjust font size for visibility */
+    color: #080707;
     font-style: italic;
+    text-align: center;
+    opacity: 0.8;
+    margin-top: 30px;
+    /* Ensure the trademark has space from content above */
+}
+
+/* Keyframe animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    header p {
+        font-size: 1.1rem;
+    }
+
+    .link-list a {
+        font-size: 1.1rem;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    .trademark {
+        font-size: 12px;
+        /* Smaller font size for mobile */
+    }
 }

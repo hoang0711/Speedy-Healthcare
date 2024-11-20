@@ -1,5 +1,3 @@
-import axios from "axios";
-
 export const getPatients = async () => {
     const response = await fetch("http://classwork.engr.oregonstate.edu:51551/patients");
     console.log(response);
