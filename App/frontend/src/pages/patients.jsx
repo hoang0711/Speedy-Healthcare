@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getPatients } from "../client/apiClient";
+import { getPatients, deletePatient } from "../client/apiPatient";
 import './style.css';
 
 function Patients() {
@@ -13,8 +13,9 @@ function Patients() {
         })
     }, [])
 
-    const handleDeleteClick = (patientId) => {
-        setPatients(patients.filter(patient => patient.id !== patientId));
+    const handleDeleteClick = (patientID) => {
+        setPatients(patients.filter(patient => patient.patientID !== patientID));
+        deletePatient(patientID)
     };
 
     return (
@@ -55,10 +56,10 @@ function Patients() {
                             <td>{patient.discharged_date}</td>
                             <td>
                                 {/* Link to EditPatientForm page for a specific patient */}
-                                <Link to={`/edit-patient/${patient.id}`}>
+                                <Link to={`/edit-patient/${patient.patientID}`}>
                                     <button>Edit</button>
                                 </Link>
-                                <button onClick={() => handleDeleteClick(patient.id)}>Delete</button>
+                                <button onClick={() => handleDeleteClick(patient.patientID)}>Delete</button>
                             </td>
                         </tr>
                     ))}

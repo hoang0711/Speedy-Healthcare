@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import './Form.css';  // Assuming you have styles for your form
-import { createPatient } from "../client/apiClient";
+import { createPatient } from "../client/apiPatient";
+import { useNavigate } from "react-router-dom";
 
 function AddPatientForm() {
+    const navigate = useNavigate();
+
     const [newPatient, setNewPatient] = useState({
-        name: "",
-        dateBirth: "",
+        patient_name: "",
+        date_of_birth: "",
         gender: "",
-        admittedDate: "",
-        dischargedDate: ""
+        admitted_date: "",
+        discharged_date: ""
     });
 
     const handleInputChange = (e) => {
@@ -20,18 +23,20 @@ function AddPatientForm() {
         e.preventDefault();
 
         // call create patient API
-        if (!newPatient.name || !newPatient.dateBirth || !newPatient.gender) {
+        if (!newPatient.patient_name || !newPatient.date_of_birth || !newPatient.gender) {
             alert("Please fill in all required fields.");
             return;
         }
         createPatient(newPatient);
         setNewPatient({
-            name: "",
-            dateBirth: "",
+            patient_name: "",
+            date_of_birth: "",
             gender: "",
-            admittedDate: "",
-            dischargedDate: ""
+            admitted_date: "",
+            discharged_date: ""
         });
+
+        navigate("/patients");
     };
 
     return (
@@ -39,16 +44,16 @@ function AddPatientForm() {
             <label>Name:</label>
             <input
                 type="text"
-                name="name"
-                value={newPatient.name}
+                name="patient_name"
+                value={newPatient.patient_name}
                 onChange={handleInputChange}
                 required
             />
             <label>Date of Birth:</label>
             <input
                 type="date"
-                name="dateBirth"
-                value={newPatient.dateBirth}
+                name="date_of_birth"
+                value={newPatient.date_of_birth}
                 onChange={handleInputChange}
                 required
             />
@@ -60,22 +65,22 @@ function AddPatientForm() {
                 required
             >
                 <option value="">Select</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
+                <option value="M">M</option>
+                <option value="F">F</option>
+                <option value="Other">Other</option>
             </select>
             <label>Admitted Date:</label>
             <input
                 type="date"
-                name="admittedDate"
-                value={newPatient.admittedDate}
+                name="admitted_date"
+                value={newPatient.admitted_date}
                 onChange={handleInputChange}
             />
             <label>Discharged Date:</label>
             <input
                 type="date"
-                name="dischargedDate"
-                value={newPatient.dischargedDate}
+                name="discharged_date"
+                value={newPatient.discharged_date}
                 onChange={handleInputChange}
             />
             <button type="submit">Add Patient</button>
