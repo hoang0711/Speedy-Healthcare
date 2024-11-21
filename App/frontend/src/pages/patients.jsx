@@ -10,9 +10,9 @@ function Patients() {
 
     // call get patients API to update patients' state
     useEffect(() => {
-        getPatients().then(response => {
+        setTimeout(() => getPatients().then(response => {
             setPatients(response);
-        })
+        }), 500);
     }, [location])
 
     const handleDeleteClick = (patientID) => {
