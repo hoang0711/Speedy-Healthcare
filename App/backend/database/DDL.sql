@@ -2,6 +2,9 @@
 SET FOREIGN_KEY_CHECKS=0;
 SET AUTOCOMMIT = 0;
 
+--------------------------------------------------------
+-- Create Table
+--------------------------------------------------------
 
 CREATE OR REPLACE TABLE Physicians (
     physicianID INT AUTO_INCREMENT PRIMARY KEY,
@@ -51,6 +54,9 @@ CREATE OR REPLACE TABLE Tests (
         ON DELETE SET NULL ON UPDATE CASCADE
 );
 
+--------------------------------------------------------
+-- Insert Data
+--------------------------------------------------------
 
 INSERT INTO Physicians (physician_name, specialty) VALUES
     ('Dr. Sarah Lee', 'Cardiology'),
