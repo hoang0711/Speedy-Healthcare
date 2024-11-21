@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getPatients, deletePatient } from "../client/apiPatient";
+import { useLocation } from 'react-router-dom';
 import './style.css';
 
 function Patients() {
     const [patients, setPatients] = useState([]);
+    const location = useLocation();
 
     // call get patients API to update patients' state
     useEffect(() => {
         getPatients().then(response => {
             setPatients(response);
         })
-    }, [])
+    }, [location])
 
     const handleDeleteClick = (patientID) => {
         setPatients(patients.filter(patient => patient.patientID !== patientID));
