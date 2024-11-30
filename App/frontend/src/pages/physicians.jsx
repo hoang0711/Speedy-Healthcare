@@ -1,5 +1,5 @@
 import React from "react";
-import './style.css'; 
+import './style.css';
 
 function Physicians() {
     return (
@@ -37,7 +37,7 @@ function Physicians() {
                     </tr>
                 </tbody>
             </table>
-            <div className="trademark">SpeedyMD™</div> 
+            <div className="trademark">SpeedyMD™</div>
         </section>
     );
 }

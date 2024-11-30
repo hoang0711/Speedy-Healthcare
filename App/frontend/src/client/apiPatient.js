@@ -7,6 +7,7 @@ const formatDate = (dateTime) => (new Date(dateTime).toISOString().split('T')[0]
 export const getPatients = async () => {
     const response = await axios.get(URL);
     const mappedData = response.data.map(patient => ({
+        patientID: patient.patientID,
         ...patient,
         date_of_birth: formatDate(patient.date_of_birth),
         admitted_date: formatDate(patient.admitted_date),
