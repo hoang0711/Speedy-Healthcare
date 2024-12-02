@@ -15,7 +15,7 @@ function ListForm({ labels, getRecords, deleteRecord, entity }) {
     }, [location])
 
     const handleDeleteClick = (id) => {
-        setRecords(records.filter(record => record[0] !== id));
+        setRecords(records.filter(record => Object.values(record)[0] !== id));
         deleteRecord(id);
     };
 
