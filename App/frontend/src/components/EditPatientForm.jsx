@@ -7,7 +7,7 @@ function EditPatientForm() {
     return (
         <EditForm
             getRecords={getPatients}
-            entity={"patient"}
+            entity={"patients"}
             editRecord={editPatient}
             defaultValues={{
                 patient_name: "",

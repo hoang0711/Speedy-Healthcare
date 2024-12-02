@@ -26,7 +26,7 @@ function ListForm({ labels, getRecords, deleteRecord, entity }) {
                 <nav>
                     <a href="/">Home</a> | <a href="/physicians">Physicians</a> |{" "}
                     <a href="/patients">Patients</a> | <a href="/diagnoses">Diagnoses</a> |{" "}
-                    <a href="/tests">Tests</a> | <a href="/medChart">MedChart</a>
+                    <a href="/tests">Tests</a> | <a href="/medCharts">MedCharts</a>
                 </nav>
             </header>
             <div className="common-actions">

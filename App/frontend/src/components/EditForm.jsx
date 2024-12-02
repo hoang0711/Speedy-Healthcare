@@ -32,56 +32,9 @@ function EditForm({ defaultValues, attributes, editRecord, entity, getRecords })
         }
         editRecord(editedRecord);  // Call the editRecord function to update the record's data
 
-        navigate(`/${entity}s`);
+        navigate(`/${entity}`);
     };
 
-    // return (
-    //     <form className="common-form" onSubmit={savePatientChanges}>
-    //         <label>Name:</label>
-    //         <input
-    //             type="text"
-    //             name="patient_name"
-    //             value={editedPatient.patient_name}
-    //             onChange={handleInputChange}
-    //             required
-    //         />
-    //         <label>Date of Birth:</label>
-    //         <input
-    //             type="date"
-    //             name="date_of_birth"
-    //             value={editedPatient.date_of_birth}
-    //             onChange={handleInputChange}
-    //             required
-    //         />
-    //         <label>Gender:</label>
-    //         <select
-    //             name="gender"
-    //             value={editedPatient.gender}
-    //             onChange={handleInputChange}
-    //             required
-    //         >
-    //             <option value="">Select</option>
-    //             <option value="M">M</option>
-    //             <option value="F">F</option>
-    //             <option value="Other">Other</option>
-    //         </select>
-    //         <label>Admitted Date:</label>
-    //         <input
-    //             type="date"
-    //             name="admitted_date"
-    //             value={editedPatient.admitted_date}
-    //             onChange={handleInputChange}
-    //         />
-    //         <label>Discharged Date:</label>
-    //         <input
-    //             type="date"
-    //             name="dischargedDate"
-    //             value={editedPatient.discharged_date}
-    //             onChange={handleInputChange}
-    //         />
-    //         <button type="submit">Save Changes</button>
-    //     </form>
-    // );
     return (
         <form className="common-form" onSubmit={saveRecordChange}>
             {attributes.map(attribute => (
@@ -111,6 +64,7 @@ function EditForm({ defaultValues, attributes, editRecord, entity, getRecords })
                     )}
                 </>
             ))}
+            <br />
             <button type="submit">Save Changes</button>
         </form>
     );

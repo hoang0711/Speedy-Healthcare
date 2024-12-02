@@ -1,44 +1,20 @@
 import React from "react";
-import './style.css';
+import { getPhysicians, deletePhysician } from "../client/apiPhysician";
+import ListForm from "../components/ListForm";
 
 function Physicians() {
+    const labels = [
+        "physician_name",
+        "specialty"
+    ];
+
     return (
-        <section className="common-container">
-            <header>
-                <h1>Physician Records</h1>
-                <nav>
-                    <a href="/">Home</a> | <a href="/patients">Patients</a> |{" "}
-                    <a href="/medchart">MedChart</a> | <a href="/diagnoses">Diagnoses</a> |{" "}
-                    <a href="/tests">Tests</a>
-                </nav>
-            </header>
-            <div className="common-actions">
-                <button>Add New Physician</button>
-            </div>
-            <table className="common-table">
-                <thead>
-                    <tr>
-                        <th>Actions</th>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Specialty</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {/* Placeholder rows */}
-                    <tr>
-                        <td>
-                            <button>Edit</button>
-                            <button>Delete</button>
-                        </td>
-                        <td>1</td>
-                        <td>Dr. Placeholder Name</td>
-                        <td>Specialty Placeholder</td>
-                    </tr>
-                </tbody>
-            </table>
-            <div className="trademark">SpeedyMD™</div>
-        </section>
+        <ListForm
+            labels={labels}
+            getRecords={getPhysicians}
+            deleteRecord={deletePhysician}
+            entity={"physician"}
+        />
     );
 }
 

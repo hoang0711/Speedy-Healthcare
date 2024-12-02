@@ -6,7 +6,7 @@ import AddForm from "./AddForm";
 function AddPatientForm() {
     return (
         <AddForm
-            entity={"patient"}
+            entity={"patients"}
             createRecord={createPatient}
             defaultValues={{
                 patient_name: "",

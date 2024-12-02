@@ -27,7 +27,7 @@ function AddForm({ createRecord, defaultValues, attributes, entity }) {
         createRecord(newRecord);
         setNewRecord(defaultValues);
 
-        navigate(`/${entity}s`);
+        navigate(`/${entity}`);
     };
 
     return (
@@ -59,6 +59,7 @@ function AddForm({ createRecord, defaultValues, attributes, entity }) {
                     )}
                 </>
             ))}
+            <br />
             <button type="submit">Add {entity}</button>
         </form>
     );

@@ -21,7 +21,7 @@ const Home = () => {
           <Link to="/patients">Manage Patients</Link>
         </li>
         <li>
-          <Link to="/medchart">Physician-Patient Relationships</Link>
+          <Link to="/medcharts">Physician-Patient Relationships</Link>
         </li>
         <li>
           <Link to="/diagnoses">Manage Diagnoses</Link>
