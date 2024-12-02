@@ -1,3 +1,9 @@
+// Citation for the following function:
+// Date: 11/20/2024
+// Adapted from:
+// Source URL: https://github.com/osu-cs340-ecampus/react-starter-app/blob/main/App/backend/database/config.js
+
+
 // Get an instance of mysql we can use in the app
 const mysql = require("mysql2");
 require("dotenv").config();

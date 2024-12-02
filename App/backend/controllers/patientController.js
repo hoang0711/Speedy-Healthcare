@@ -1,3 +1,8 @@
+// Citation for the following function:
+// Date: 11/20/2024
+// Adapted from:
+// Source URL: https://github.com/osu-cs340-ecampus/react-starter-app/blob/main/App/backend/controllers/peopleController.js
+
 
 // Load db config
 const db = require("../database/config");
@@ -9,6 +14,8 @@ const lodash = require("lodash");
 
 const entityTable = "Patients";
 const intersectionTable = "MedChart";
+const diagnosesTable = "Diagnoses";
+const testTable = "Tests";
 
 // Returns all rows of patients in Patients
 const getPatients = async (req, res) => {
@@ -25,23 +32,23 @@ const getPatients = async (req, res) => {
   }
 };
 
-// // Returns a single patient by their unique ID from Patients
-// const getPatientByID = async (req, res) => {
-//   try {
-//     const patientID = req.params.id;
-//     const query = `SELECT * FROM ${entityTable} WHERE patientID = ?`;
-//     const [result] = await db.query(query, [patientID]);
-//     // Check if patient was found
-//     if (result.length === 0) {
-//       return res.status(404).json({ error: "Patient not found" });
-//     }
-//     const patient = result[0];
-//     res.json(patient);
-//   } catch (error) {
-//     console.error("Error fetching patient from the database:", error);
-//     res.status(500).json({ error: "Error fetching patient" });
-//   }
-// };
+// Returns a single patient by their unique ID from Patients
+const getPatientByID = async (req, res) => {
+  try {
+    const patientID = req.params.id;
+    const query = `SELECT * FROM ${entityTable} WHERE patientID = ?`;
+    const [result] = await db.query(query, [patientID]);
+    // Check if patient was found
+    if (result.length === 0) {
+      return res.status(404).json({ error: "Patient not found" });
+    }
+    const patient = result[0];
+    res.json(patient);
+  } catch (error) {
+    console.error("Error fetching patient from the database:", error);
+    res.status(500).json({ error: "Error fetching patient" });
+  }
+};
 
 // Returns status of creation of new patient in Patients table
 const createPatient = async (req, res) => {
@@ -74,8 +81,8 @@ const updatePatient = async (req, res) => {
   const newPatient = req.body;
 
   try {
-    const [data] = await db.query(`SELECT * FROM ${entityTable} WHERE patientID = ?`,
-      [patientID]);
+    const [data] = await db.query(`SELECT * FROM ${entityTable} WHERE patientID = ?`, 
+    [patientID]);
 
     const oldPatient = data[0];
 
@@ -87,7 +94,7 @@ const updatePatient = async (req, res) => {
       // Homeoworld is NULL-able FK in bsg_people, has to be valid INT FK ID or NULL
       // const hw = newPerson.homeworld === "" ? null : newPerson.homeworld;
 
-      const values = [
+       const values = [
         newPatient.patient_name,
         newPatient.date_of_birth,
         newPatient.gender,
@@ -128,16 +135,40 @@ const deletePatient = async (req, res) => {
       return res.status(404).send("Patient not found");
     }
 
-    // Delete related records from the intersection table (see FK contraints MedChart)
-    const [response] = await db.query(
+    // Delete related records from the intersection table (see FK constraints MedChart)
+    const [response1] = await db.query(
       `DELETE FROM ${intersectionTable} WHERE patientID = ?`,
+      [patientID]
+    );
+
+    // Delete related records from the Diagnoses table (patientID is a FK within Diagnoses)
+    const [response2] = await db.query(
+      `DELETE FROM ${diagnosesTable} WHERE patientID = ?`,
+      [patientID]
+    );
+
+    // Delete related records from the Tests table (patientID is a FK within Tests)
+    const [response3] = await db.query(
+      `DELETE FROM ${testTable} WHERE patientID = ?`,
       [patientID]
     );
 
     console.log(
       "Deleted",
-      response.affectedRows,
+      response1.affectedRows,
       "rows from MedChart intersection table"
+    );
+
+    console.log(
+      "Deleted",
+      response2.affectedRows,
+      "rows from Diagnoses table"
+    );
+
+    console.log(
+      "Deleted",
+      response3.affectedRows,
+      "rows from Tests table"
     );
 
     // Delete the patient from Patients
@@ -154,7 +185,7 @@ const deletePatient = async (req, res) => {
 // Export the functions as methods of an object
 module.exports = {
   getPatients,
-  // getPatientByID,
+  getPatientByID,
   createPatient,
   updatePatient,
   deletePatient,

@@ -1,3 +1,8 @@
+// Citation for the following function:
+// Date: 11/20/2024
+// Adapted from:
+// Source URL: https://github.com/osu-cs340-ecampus/react-starter-app/blob/main/App/backend/server.js
+
 
 const express = require("express");
 const cors = require("cors");
@@ -16,7 +21,10 @@ app.use(express.json());
 
 // API Routes for backend CRUD:
 app.use("/api/patients", require("./routes/patientRoutes"));
-
+app.use("/api/physicians", require("./routes/physicianRoutes"));
+app.use("/api/diagnoses", require("./routes/diagnosisRoutes"));
+app.use("/api/tests", require("./routes/testRoutes"));
+app.use("/api/medcharts", require("./routes/medchartRoutes"));
 
 // Add your Connect DB Activitiy Code Below:
 // ...
