@@ -1,93 +1,55 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";  // Get patient ID from the URL
-import './Form.css';
+import React, { useState } from "react";
+import './Form.css';  // Assuming you have styles for your form
 import { editPatient, getPatients } from "../client/apiPatient";
-import { useNavigate } from "react-router-dom";
+import EditForm from "./EditForm";
 
 function EditPatientForm() {
-    const navigate = useNavigate();
-    const { id } = useParams();  // Get patient ID from the URL
-    const [editedPatient, setEditedPatient] = useState({
-        patientID: "",
-        patient_name: "",
-        date_of_birth: "",
-        gender: "",
-        admitted_date: "",
-        discharged_date: ""
-    });
-
-    useEffect(() => {
-        getPatients().then(response => {
-            const foundPatient = response.find((patient) => Number(patient.patientID) === Number(id));
-            setEditedPatient(foundPatient);
-        })
-    }, [id])
-
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setEditedPatient({ ...editedPatient, [name]: value });
-    };
-
-    const savePatientChanges = (e) => {
-        e.preventDefault();
-        if (!editedPatient.patient_name || !editedPatient.date_of_birth || !editedPatient.gender) {
-            alert("Please fill in all required fields.");
-            return;
-        }
-        editPatient(editedPatient);  // Call the editPatient function to update the patient's data
-
-        navigate("/patients");
-    };
-
     return (
-        <form className="common-form" onSubmit={savePatientChanges}>
-            <label>Name:</label>
-            <input
-                type="text"
-                name="patient_name"
-                value={editedPatient.patient_name}
-                onChange={handleInputChange}
-                required
-            />
-            <label>Date of Birth:</label>
-            <input
-                type="date"
-                name="date_of_birth"
-                value={editedPatient.date_of_birth}
-                onChange={handleInputChange}
-                required
-            />
-            <label>Gender:</label>
-            <select
-                name="gender"
-                value={editedPatient.gender}
-                onChange={handleInputChange}
-                required
-            >
-                <option value="">Select</option>
-                <option value="M">M</option>
-                <option value="F">F</option>
-                <option value="Other">Other</option>
-            </select>
-            <label>Admitted Date:</label>
-            <input
-                type="date"
-                name="admitted_date"
-                value={editedPatient.admitted_date}
-                onChange={handleInputChange}
-            />
-            <label>Discharged Date:</label>
-            <input
-                type="date"
-                name="dischargedDate"
-                value={editedPatient.discharged_date}
-                onChange={handleInputChange}
-            />
-            <button type="submit">Save Changes</button>
-        </form>
+        <EditForm
+            getRecords={getPatients}
+            entity={"patient"}
+            editRecord={editPatient}
+            defaultValues={{
+                patient_name: "",
+                date_of_birth: "",
+                gender: "",
+                admitted_date: "",
+                discharged_date: ""
+            }}
+            attributes={[
+                {
+                    label: "Patient Name",
+                    name: "patient_name",
+                    type: "text",
+                    required: true
+                },
+                {
+                    label: "Date of Birth",
+                    name: "date_of_birth",
+                    type: "date",
+                    required: true
+                },
+                {
+                    label: "Gender",
+                    name: "gender",
+                    type: "select",
+                    options: ["M", "F", "Other"],
+                    required: true
+                },
+                {
+                    label: "Admitted Date",
+                    name: "admitted_date",
+                    type: "date",
+                },
+                {
+                    label: "Discharged Date",
+                    name: "discharged_date",
+                    type: "date",
+                }
+            ]}
+        />
     );
 }
 
 export default EditPatientForm;
-
 
