@@ -26,12 +26,6 @@ app.use("/api/diagnoses", require("./routes/diagnosisRoutes"));
 app.use("/api/tests", require("./routes/testRoutes"));
 app.use("/api/medcharts", require("./routes/medchartRoutes"));
 
-// Add your Connect DB Activitiy Code Below:
-// ...
-
-
-// ...
-// End Connect DB Activity Code.
 
 
 const os = require("os");
