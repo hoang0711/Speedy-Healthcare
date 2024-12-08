@@ -39,11 +39,13 @@ function AddPatientForm() {
                     label: "Admitted Date",
                     name: "admitted_date",
                     type: "date",
+                    required: true
                 },
                 {
                     label: "Discharged Date",
                     name: "discharged_date",
                     type: "date",
+                    required: true
                 }
             ]}
         />

@@ -11,7 +11,10 @@ function ListForm({ labels, getRecords, deleteRecord, entity }) {
     useEffect(() => {
         setTimeout(() => getRecords().then(response => {
             setRecords(response);
-        }), 500);
+        }).catch(error => {
+            alert(error.response?.data?.error || error.message)
+        }),
+            500);
     }, [location])
 
     const handleDeleteClick = (id) => {

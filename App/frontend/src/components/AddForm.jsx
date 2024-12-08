@@ -24,7 +24,10 @@ function AddForm({ createRecord, defaultValues, attributes, entity }) {
             alert("Please fill in all required fields.");
             return;
         }
-        createRecord(newRecord);
+        createRecord(newRecord).catch(error => {
+            alert(error.response?.data?.error || error.message);
+        });
+
         setNewRecord(defaultValues);
 
         navigate(`/${entity}`);

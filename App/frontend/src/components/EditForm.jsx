@@ -12,6 +12,8 @@ function EditForm({ defaultValues, attributes, editRecord, entity, getRecords })
         getRecords().then(response => {
             const foundRecord = response.find((record) => Number(Object.values(record)[0]) === Number(id));
             setEditedRecord(foundRecord);
+        }).catch(error => {
+            alert(error.response?.data?.error || error.message);
         })
     }, [id])
 
@@ -30,7 +32,9 @@ function EditForm({ defaultValues, attributes, editRecord, entity, getRecords })
             alert("Please fill in all required fields.");
             return;
         }
-        editRecord(editedRecord);  // Call the editRecord function to update the record's data
+        editRecord(editedRecord).catch(error => {
+            alert(error.response?.data?.error || error.message);
+        });  // Call the editRecord function to update the record's data
 
         navigate(`/${entity}`);
     };

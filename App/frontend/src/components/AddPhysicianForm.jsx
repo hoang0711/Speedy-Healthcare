@@ -24,6 +24,7 @@ function AddPhysicianForm() {
                     name: "specialty",
                     type: "select",
                     options: ["Cardiology", "Dermatology", "Pediatrics", "Other"],
+                    required: true
                 }
             ]}
         />

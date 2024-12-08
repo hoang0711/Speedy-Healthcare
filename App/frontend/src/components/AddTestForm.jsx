@@ -44,11 +44,13 @@ function AddTestForm() {
                     label: "Pantient ID",
                     name: "patientID",
                     type: "text",
+                    required: true
                 },
                 {
                     label: "Result",
                     name: "result",
                     type: "text",
+                    required: true
                 }
             ]}
         />
