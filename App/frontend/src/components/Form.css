@@ -29,6 +29,11 @@
     margin-right: 4%;
 }
 
+.common-form input[type="time"] {
+    width: 48%;
+    margin-right: 4%;
+}
+
 .common-form input[type="text"],
 .common-form select {
     width: 48%;

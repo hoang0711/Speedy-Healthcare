@@ -40,7 +40,7 @@ function EditForm({ defaultValues, attributes, editRecord, entity, getRecords })
             {attributes.map(attribute => (
                 <>
                     <label>{attribute.label}:</label>
-                    {(attribute.type === "text" || attribute.type === "date") && (
+                    {(attribute.type === "text" || attribute.type === "date" || attribute.type === "time") && (
                         <input
                             type={attribute.type}
                             name={attribute.name}

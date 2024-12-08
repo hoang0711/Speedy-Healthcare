@@ -16,7 +16,7 @@ function Patients() {
             labels={labels}
             getRecords={getPatients}
             deleteRecord={deletePatient}
-            entity={"patient"}
+            entity={"Patient"}
         />
     );
 }

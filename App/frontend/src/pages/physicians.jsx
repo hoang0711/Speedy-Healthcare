@@ -13,7 +13,7 @@ function Physicians() {
             labels={labels}
             getRecords={getPhysicians}
             deleteRecord={deletePhysician}
-            entity={"physician"}
+            entity={"Physician"}
         />
     );
 }

@@ -14,6 +14,8 @@ import AddMedchartForm from './components/AddMedchartForm.jsx';
 import EditMedchartForm from './components/EditMedchartForm.jsx';
 import AddDiagnosesForm from './components/AddDiagnosesForm.jsx';
 import EditDiagnosesForm from './components/EditDiagnosesForm.jsx';
+import AddTestForm from './components/AddTestForm.jsx';
+import EditTestForm from './components/EditTestForm.jsx';
 
 const App = () => (
   <Routes>
@@ -31,6 +33,8 @@ const App = () => (
     <Route path="/edit-medchart/:id" element={<EditMedchartForm />} />
     <Route path="/add-diagnoses" element={<AddDiagnosesForm />} />
     <Route path="/edit-diagnoses/:id" element={<EditDiagnosesForm />} />
+    <Route path="/add-test" element={<AddTestForm />} />
+    <Route path="/edit-test/:id" element={<EditTestForm />} />
   </Routes>
 );
 

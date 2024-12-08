@@ -14,7 +14,7 @@ function Medcharts() {
             labels={labels}
             getRecords={getMedcharts}
             deleteRecord={deleteMedchart}
-            entity={"medchart"}
+            entity={"Medchart"}
         />
     );
 }

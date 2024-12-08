@@ -35,7 +35,7 @@ function AddForm({ createRecord, defaultValues, attributes, entity }) {
             {attributes.map(attribute => (
                 <>
                     <label>{attribute.label}:</label>
-                    {(attribute.type === "text" || attribute.type === "date") && (
+                    {(attribute.type === "text" || attribute.type === "date" || attribute.type === "time") && (
                         <input
                             type={attribute.type}
                             name={attribute.name}
