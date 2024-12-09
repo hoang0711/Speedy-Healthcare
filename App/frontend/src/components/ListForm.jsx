@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
 import './style.css';
 
-function ListForm({ labels, getRecords, deleteRecord, entity }) {
+function ListForm({ labels, displayLabel, getRecords, deleteRecord, entity }) {
     const [records, setRecords] = useState([]);
     const location = useLocation();
 
@@ -42,7 +42,7 @@ function ListForm({ labels, getRecords, deleteRecord, entity }) {
             <table className="common-table">
                 <thead>
                     <tr>
-                        {labels.map(label => <th>{label}</th>)}
+                        {displayLabel.map(label => <th>{label}</th>)}
                         <th>Action</th>
                     </tr>
                 </thead>

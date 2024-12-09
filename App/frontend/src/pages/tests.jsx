@@ -3,6 +3,15 @@ import { getTests, deleteTest } from "../client/apiTests";
 import ListForm from "../components/ListForm";
 
 function Tests() {
+    const displayLabel = [
+        "Test Name",
+        "Test Date",
+        "Test Time",
+        "PhysicianID",
+        "PatientID",
+        "Result"
+    ]
+
     const labels = [
         "test_name",
         "test_date",
@@ -14,6 +23,7 @@ function Tests() {
 
     return (
         <ListForm
+            displayLabel={displayLabel}
             labels={labels}
             getRecords={getTests}
             deleteRecord={deleteTest}

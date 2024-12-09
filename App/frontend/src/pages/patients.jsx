@@ -3,6 +3,14 @@ import { getPatients, deletePatient } from "../client/apiPatient";
 import ListForm from "../components/ListForm";
 
 function Patients() {
+    const displayLabel = [
+        "Patient Name",
+        "Date of Birth",
+        "Gender",
+        "Admitted Date",
+        "Discharged Date"
+    ]
+
     const labels = [
         "patient_name",
         "date_of_birth",
@@ -13,6 +21,7 @@ function Patients() {
 
     return (
         <ListForm
+            displayLabel={displayLabel}
             labels={labels}
             getRecords={getPatients}
             deleteRecord={deletePatient}
