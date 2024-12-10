@@ -151,7 +151,7 @@ const deleteTest = async (req, res) => {
 // Export the functions as methods of an object
 module.exports = {
   getTests,
-  getTestByID,
+  // getTestByID,
   createTest,
   updateTest,
   deleteTest,

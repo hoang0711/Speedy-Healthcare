@@ -142,7 +142,7 @@ const deleteMedChart = async (req, res) => {
 // Export the functions as methods of an object
 module.exports = {
   getMedCharts,
-  getMedChartByID,
+  // getMedChartByID,
   createMedChart,
   updateMedChart,
   deleteMedChart,
