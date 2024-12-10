@@ -8,7 +8,7 @@ const express = require("express");
 const router = express.Router();
 const {
   getMedCharts,
-  getMedChartByID,
+//  getMedChartByID,
   createMedChart,
   updateMedChart,
   deleteMedChart,
