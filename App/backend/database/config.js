@@ -8,6 +8,9 @@
 const mysql = require("mysql2");
 require("dotenv").config();
 
+const urlDB = `mysql://${process.env.MYSQLUSER}:${process.env.MYSQL_ROOT_PASSWORD}@${
+  process.env.RAILWAY_PRIVATE_DOMAIN}:3306/${process.env.MYSQL_DATABASE}`
+
 // Create a 'connection pool' using the provided credentials
 const pool = mysql.createPool({
   connectionLimit: 10,
