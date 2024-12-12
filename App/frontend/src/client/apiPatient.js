@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL = `${process.env.REACT_APP_BACKEND_URL}/api/patients`
+const URL = "https://speedy-healthcare-production.up.railway.app/api/patients"
 
 const formatDate = (dateTime) => (new Date(dateTime).toISOString().split('T')[0])
 
