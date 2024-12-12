@@ -8,12 +8,17 @@
 const mysql = require("mysql2");
 require("dotenv").config();
 
-const urlDB = `mysql://${process.env.MYSQLUSER}:${process.env.MYSQL_ROOT_PASSWORD}@${
-  process.env.RAILWAY_PRIVATE_DOMAIN}:3306/${process.env.MYSQL_DATABASE}`
+// const urlDB = `mysql://${process.env.MYSQLUSER}:${process.env.MYSQL_ROOT_PASSWORD}@${process.env.RAILWAY_PRIVATE_DOMAIN}:3306/${process.env.MYSQL_DATABASE}`
 
 // Create a 'connection pool' using the provided credentials
-const connection = mysql.createConnection(urlDB);
+const connection = mysql.createConnection({
+  host: "junction.proxy.rlwy.net",
+  user: "root",
+  password: "UQGXLZGSUllLSIkfZdZoWUtrsWRovXDH",
+  database: "railway",
+});
 
+// mysql://root:UQGXLZGSUllLSIkfZdZoWUtrsWRovXDH@junction.proxy.rlwy.net:40986/railway
 // Export it for use in our application
 module.exports = connection;
 
