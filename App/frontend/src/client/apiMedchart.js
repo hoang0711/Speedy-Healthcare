@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL = `${process.env.REACT_APP_BACKEND_URL}/api/medcharts`
+const URL = "https://speedymdbackend.onrender.com/api/medcharts"
 
 // const formatDate = (dateTime) => (new Date(dateTime).toISOString().split('T')[0])
 
