@@ -35,10 +35,10 @@ app.use("/api/medcharts", require("./routes/medchartRoutes"));
 // End Connect DB Activity Code.
 
 
-// const os = require("os");
-// const hostname = os.hostname();
+ const os = require("os");
+ const hostname = os.hostname();
 
 app.listen(PORT, () => {
   // flip server should automatically match whatever server you're on 
-  console.log(`Server running:  http://localhost:${PORT}/api...`);
+  console.log(`Server running:  https://${hostname}:${PORT}/api...`);
 });
