@@ -12,10 +12,10 @@ require("dotenv").config();
 
 // Create a 'connection pool' using the provided credentials
 const connection = mysql.createConnection({
-  host: "junction.proxy.rlwy.net",
-  user: "root",
-  password: "UQGXLZGSUllLSIkfZdZoWUtrsWRovXDH",
-  database: "railway",
+  host: "",
+  user: "",
+  password: "",
+  database: "",
 });
 
 // mysql://root:UQGXLZGSUllLSIkfZdZoWUtrsWRovXDH@junction.proxy.rlwy.net:40986/railway
