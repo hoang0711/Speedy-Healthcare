@@ -10,7 +10,7 @@ require("dotenv").config();
 
 const app = express();
 // const PORT = process.env.PORT || 8500;
-const PORT = 40986;
+const PORT = 51557;
 
 // Middleware:
 
@@ -35,10 +35,10 @@ app.use("/api/medcharts", require("./routes/medchartRoutes"));
 // End Connect DB Activity Code.
 
 
-const os = require("os");
-const hostname = os.hostname();
+// const os = require("os");
+// const hostname = os.hostname();
 
 app.listen(PORT, () => {
   // flip server should automatically match whatever server you're on 
-  console.log(`Server running:  http://${hostname}:${PORT}/api...`);
+  console.log(`Server running:  http://localhost:${PORT}/api...`);
 });
