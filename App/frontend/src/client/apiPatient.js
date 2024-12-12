@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL = "http://classwork.engr.oregonstate.edu:51554/api/patients"
+const URL = "https://speedy-healthcare-production.up.railway.app/api/patients"
 
 const formatDate = (dateTime) => (new Date(dateTime).toISOString().split('T')[0])
 
