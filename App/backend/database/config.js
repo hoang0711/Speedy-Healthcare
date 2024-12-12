@@ -12,15 +12,8 @@ const urlDB = `mysql://${process.env.MYSQLUSER}:${process.env.MYSQL_ROOT_PASSWOR
   process.env.RAILWAY_PRIVATE_DOMAIN}:3306/${process.env.MYSQL_DATABASE}`
 
 // Create a 'connection pool' using the provided credentials
-const pool = mysql.createPool({
-  connectionLimit: 10,
-  waitForConnections: true,
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE,
-}).promise();
+const connection = mysql.createConnection(urlDB);
 
 // Export it for use in our application
-module.exports = pool;
+module.exports = connection;
 
