@@ -6,11 +6,13 @@ dotenv.config()
 
 // https://vitejs.dev/config/
 export default defineConfig({
+
   server: {
     proxy: {
-      '/api': 'http://localhost:51557'
+      '/api': 'http://localhost:10000'
     }
   },
+
   plugins: [react()],
   esbuild: {
     loader: "jsx"
