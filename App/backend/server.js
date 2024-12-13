@@ -9,7 +9,7 @@ const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3050;
 //const PORT = 51557;
 
 // Middleware:
@@ -35,8 +35,8 @@ app.use("/api/medcharts", require("./routes/medchartRoutes"));
 // End Connect DB Activity Code.
 
 
- const os = require("os");
- const hostname = os.hostname();
+//const os = require("os");
+//const hostname = os.hostname();
 
 app.listen(PORT, () => {
   // flip server should automatically match whatever server you're on 
