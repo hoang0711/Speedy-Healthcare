@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 8500;
 // If on FLIP, use cors() middleware to allow cross-origin requests from the frontend with your port number:
 // EX (local): http://localhost:5173 
 // EX (FLIP/classwork) http://flip3.engr.oregonstate.edu:5173
-//app.use(cors({ credentials: true, origin: "*" }));
+app.use(cors({ credentials: true, origin: "*" }));
 app.use(express.json());
 
 // API Routes for backend CRUD:
