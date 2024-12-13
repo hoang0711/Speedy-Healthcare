@@ -40,6 +40,6 @@ app.use("/api/medcharts", require("./routes/medchartRoutes"));
 
 app.listen(PORT, () => {
   // flip server should automatically match whatever server you're on 
-  console.log(`Server running:  http://${hostname}:${PORT}/api...`);
-  //console.log(`Server running: http://localhost:${PORT}/api...`);
+  //console.log(`Server running:  http://${hostname}:${PORT}/api...`);
+  console.log(`Server running: http://localhost:${PORT}/api...`);
 });
