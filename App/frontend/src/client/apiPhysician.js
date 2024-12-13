@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL = "https://speedy-healthcare-production.up.railway.app/physicians"
+const URL = "https://speedymdbackend.onrender.com/physicians"
 
 // const formatDate = (dateTime) => (new Date(dateTime).toISOString().split('T')[0])
 
