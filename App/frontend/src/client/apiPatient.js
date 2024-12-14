@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL = "https://speedymdbackend.onrender.com/api/patients"
+const URL = "https://speedymd-backend-42c46ebfc66b.herokuapp.com/api/patients"
 
 const formatDate = (dateTime) => (new Date(dateTime).toISOString().split('T')[0])
 
